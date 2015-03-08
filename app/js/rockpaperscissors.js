@@ -70,7 +70,7 @@ function getWinner(playerMove,computerMove) {
     else if ((playerMove == "paper") && (computerMove == "scissors")) {
         winner = "computer";
     }
-    else ((playerMove == "scissors") && (computerMove == "scissors")) {
+    else  {
         winner = "tie";
 
     }
@@ -83,6 +83,7 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+
     return [playerWins, computerWins];
 }
 
