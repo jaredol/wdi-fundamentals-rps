@@ -23,19 +23,20 @@ function randomPlay() {
 
 function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
-    var move = move;
+    //var move = move;
     // If a `move` has a value, your expression should evaluate to that value.
 
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
 
-    return move = move || getInput();
+    return move || getInput();
 }
 
 function getComputerMove(move) {
+    //var move = move;
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return /* Your Expression */;
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -61,7 +62,7 @@ function getWinner(playerMove,computerMove) {
         winner = "tie";
     }
     else if ((playerMove == "scissors") && (computerMove == "paper")) {
-        winner = "computer";
+        winner = "player";
     }
     
     else if ((playerMove == "rock") && (computerMove == "scissors")) {
@@ -77,12 +78,39 @@ function getWinner(playerMove,computerMove) {
     return winner;
 }
 
+
+
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+    while(playerWins < 5 && computerWins < 5){
+
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+
+        var winner = getWinner(playerMove, computerMove);
+
+        // if player wins
+        if (winner == "player"){
+             playerWins++;
+             console.log("Player chose " + playerMove + " and Computer chose " + computerMove + ", Player wins");
+        }
+        // if computer winsr
+        else if (winner == "computer"){
+             computerWins++;
+             console.log("Player chose " + playerMove + " and Computer chose " + computerMove + ", Computer wins");
+        }
+        // tie
+        else {
+            console.log("Player chose " + playerMove + " and Computer chose " + computerMove + ", Game was tied");
+        }
+
+        console.log("The score is currently " + playerWins + " to " + computerWins + "\n");
+
+
+    }
+ 
 
     return [playerWins, computerWins];
 }
